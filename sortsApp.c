@@ -5,11 +5,12 @@
 #include "./sorts/exchange.c"
 #include "./sorts/gnome.c"
 #include "./sorts/iCantBelieveItCanSort.c"
+#include "./sorts/radixPlacing.c"
 #include "sortingUtils/sortingChecking.c"
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#define LENGTH 100000
+#define LENGTH 100
 #define SLOWLENGTH 10
 #define ALLOWSLOW 0
 int main() {
@@ -84,6 +85,15 @@ int main() {
   memcpy(gnomeArray, array, LENGTH * sizeof(int));
   struct sortStats gnomeSortStats = gnomeSort(gnomeArray, LENGTH);
   printf("GnomeSort: Number of comparasons: %lld, Number of permutations: "
+         "%lld, "
+         "Time taken: %f, Correctly Sorted: %d\n",
+         gnomeSortStats.comparasons, gnomeSortStats.permutations,
+         gnomeSortStats.timeUsed, isSorted(gnomeArray, LENGTH));
+
+  int radixArray[LENGTH];
+  memcpy(radixArray, array, LENGTH * sizeof(int));
+  struct sortStats radixSortStats = radixSort(radixArray, LENGTH);
+  printf("RadixSort: Number of comparasons: %lld, Number of permutations: "
          "%lld, "
          "Time taken: %f, Correctly Sorted: %d\n",
          gnomeSortStats.comparasons, gnomeSortStats.permutations,
