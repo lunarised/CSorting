@@ -96,8 +96,8 @@ int main() {
   printf("RadixSort: Number of comparasons: %lld, Number of permutations: "
          "%lld, "
          "Time taken: %f, Correctly Sorted: %d\n",
-         gnomeSortStats.comparasons, gnomeSortStats.permutations,
-         gnomeSortStats.timeUsed, isSorted(gnomeArray, LENGTH));
+         radixSortStats.comparasons, radixSortStats.permutations,
+         radixSortStats.timeUsed, isSorted(radixArray, LENGTH));
 
   return EXIT_SUCCESS;
 }
